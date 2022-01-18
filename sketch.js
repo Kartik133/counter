@@ -1,35 +1,23 @@
 var count = 0;
-var sprite;
-var count2 = 0;
+var c;
 
 function setup() {
-   sprite = createSprite(0,0,0,0);
-   sprite.visible = false;
+  createCanvas(windowWidth,windowHeight);
+  
+  c = createButton("Target");
+  c.position(width/2,height-100);
 }
 
 function draw() {
-  createCanvas(windowWidth,windowHeight);
+  background(255);
 
-  sprite.x = width/2;
-  sprite.y = height/2;
-  sprite.width = width;
-  sprite.height = height;
-
-  if(mousePressedOver(sprite)){
-      count+=1;
-      background(255,255,0);
-      if(count===1) {
-        count2+=1;
-      }
-  }else{
-     background(255);
-     count = 0;
-   }
-  
   fill(0);
   noStroke();
-  textSize(30);
-  text(count2,width/2,height/2);
+  textSize(270);
+  textAlign(CENTER);
+  text(count,width/2,height/2+100);
+}
 
-  drawSprites();
+function mouseReleased() {
+  count+=1;
 }
