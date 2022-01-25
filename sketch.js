@@ -18,7 +18,7 @@ function setup() {
   cancel.style("font-size","50px");
 
   minus = createButton("-");
-  minus.position(width/2-35,height/2+500);
+  minus.position(width/2-45,height/2+500);
   minus.style("background","lavender");
   minus.style("width","75px");
   minus.style("font-size","100px");
@@ -29,7 +29,7 @@ function setup() {
   set.style("font-size","50px");
 
   plus = createButton("+");
-  plus.position(width/2-35,height/2+300);
+  plus.position(width/2-45,height/2+300);
   plus.style("background","lavender");
   plus.style("font-size","100px");
   
