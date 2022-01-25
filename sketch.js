@@ -58,7 +58,13 @@ function draw() {
    plus.show();
    minus.show();
    target.show();
-   reset.show();
+
+   if(count!==0) {
+     reset.show();
+   }else{
+      reset.hide();
+    }
+   
 
    if(input.value()>0) {
      cancel.show();
@@ -67,7 +73,7 @@ function draw() {
      }
 
      if(count==input.value()) {
-       fill(68,85,200);
+       fill(0,255,0);
      }
 
      if(count>input.value()) {
