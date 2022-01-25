@@ -18,10 +18,10 @@ function setup() {
   cancel.style("font-size","50px");
 
   minus = createButton("-");
-  minus.position(width/2-35,height/2+150);
+  minus.position(width/2-35,height/2+400);
   minus.style("background","lavender");
   minus.style("width","47.5px");
-  minus.style("font-size","50px");
+  minus.style("font-size","100px");
 
   set = createButton("set");
   set.position(width/2-500,height/2-35);
@@ -29,9 +29,9 @@ function setup() {
   set.style("font-size","50px");
 
   plus = createButton("+");
-  plus.position(width/2-35,height/2+90);
+  plus.position(width/2-35,height/2+300);
   plus.style("background","lavender");
-  plus.style("font-size","50px");
+  plus.style("font-size","100px");
   
   reset = createButton("Reset");
   reset.position(width/2-80,height/2);
