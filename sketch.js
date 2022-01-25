@@ -1,28 +1,44 @@
 var count = 0;
-var reset,target,wT,t;
+var reset,target,plus,minus,set,cancel;
+var input;
 var gameState = "start";
 var c = 0;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
 
-  t = createButton("WITH TARGET");
-  t.position(width/2-500,height/2-35);
-  t.style("background","orange");
-  t.style("font-size","50px");
+  input = createInput("0",'number');
+  //input.position(width/2-500,height/2-35);
+  input.style("background","lavender");
+  input.style("font-size","50px");
 
-  wT = createButton("WITHOUT TARGET");
-  wT.position(width/2+100,height/2-35);
-  wT.style("background","orange");
-  wT.style("font-size","50px");
+  cancel = createButton("Cancel");
+  //cancel.position(width/2-500,height/2-35);
+  cancel.style("background","lavender");
+  cancel.style("font-size","50px");
+
+  minus = createButton("-");
+  //minus.position(width/2-500,height/2-35);
+  minus.style("background","lavender");
+  minus.style("font-size","50px");
+
+  set = createButton("set");
+  //set.position(width/2-500,height/2-35);
+  set.style("background","lavender");
+  set.style("font-size","50px");
+
+  plus = createButton("+");
+  //plus.position(width/2+100,height/2-35);
+  plus.style("background","lavender");
+  plus.style("font-size","50px");
   
-  reset = createButton("RESET");
-  reset.position(width/2-80,height-100);
+  reset = createButton("Reset");
+  //reset.position(width/2-80,height-100);
   reset.style("background","orange");
   reset.style("font-size","50px");
 
-  target = createButton("TARGET");
-  target.position(width/2-80,height-100);
+  target = createButton("Target");
+  //target.position(width/2-80,height-100);
   target.style("background","orange");
   target.style("font-size","50px");
 }
@@ -31,57 +47,86 @@ function draw() {
   background(255);
 
   if(gameState==="start") {
-    reset.hide();
-    target.hide();
-    t.show();
-    wT.show();
-
-    wT.mouseReleased(()=>{
-      gameState = "wT";
-      count = 0;
-    });
-
-    t.mouseReleased(()=>{
-      gameState = "t";
-      count = 0;
-    });
-  }
-
-  if(gameState==="wT") {
-    reset.show();
-    target.hide();
-    c++;
-  }
-
-  if(gameState==="t") {
-    reset.show();
-    target.show();
-    c++;
-  }
-
-  if(gameState!=="start") {
    fill(0);
    noStroke();
    textSize(270);
    textAlign(CENTER);
-   text(count,width/2,height/2+100);
+   //text(count,width/2,height/2+100);
 
+   set.hide();
+   input.hide();
+   plus.show();
+   minus.show();
+   target.show();
+   reset.show();
+
+   if(input.value()>0) {
+     cancel.show();
+     if(count<input.value()) {
+       fill(0);
+     }
+
+     if(count==input.value()) {
+       fill(68,85,200);
+     }
+
+     if(count>input.value()) {
+       fill(255,0,0);
+     }
+    
+     text(count+"/"+input.value(),width/2,height/2+100);
+   }else{
+       cancel.hide();
+       fill(0);
+       text(count,width/2,height/2+100);
+    }
+
+   cancel.mouseReleased(()=>{
+     input.value(0);
+     count = 0;
+   });
    
-   t.hide();
-   wT.hide();
+
+   plus.mouseReleased(()=>{
+     count+=1;
+   });
+
+   minus.mouseReleased(()=>{
+     if(count!==0) {
+      count-=1;
+     }
+   });
+  
+
+   reset.mousePressed(()=>{
+     count = 0;
+   });
+
+   target.mousePressed(()=>{
+     gameState = "set";
+   });
   }
 
-  reset.mousePressed(()=>{
-    count = 0;
-  })
-}
+  if(gameState==="set") {
+    set.show();
+    input.show();
+    reset.hide();
+    target.hide();
+    minus.hide();
+    plus.hide();
+    cancel.show();
 
-function mouseReleased() {
-   if((mouseY < height-100 || mouseX < width/2-80 || mouseX > width/2+80 || mouseY > height-30) && gameState==="wT" && c>10) {
-    count+=1;
-   }
+    set.mouseReleased(()=>{
+     if(input.value()>0) {
+       gameState = "start";
+       count = 0;
+     }
+    });
 
-   if((mouseY < height-100 || mouseX < width/2-80 || mouseX > width/2+80 || mouseY > height-30) && gameState==="t" && c>10) {
-    count+=1;
-   }
+    cancel.mouseReleased(()=>{
+     input.value(0);
+     count = 0;
+     gameState = "start";
+    });
+  }
 }
