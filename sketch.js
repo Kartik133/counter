@@ -8,7 +8,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
 
   input = createInput("0",'number');
-  //input.position(width/2-500,height/2-35);
+  input.position(width/2-250,height/2-35);
   input.style("background","lavender");
   input.style("font-size","50px");
 
@@ -18,27 +18,28 @@ function setup() {
   cancel.style("font-size","50px");
 
   minus = createButton("-");
-  //minus.position(width/2-500,height/2-35);
+  minus.position(width/2-35,height/2+150);
   minus.style("background","lavender");
+  minus.style("width","47.5px");
   minus.style("font-size","50px");
 
   set = createButton("set");
-  //set.position(width/2-500,height/2-35);
+  set.position(width/2-500,height/2-35);
   set.style("background","lavender");
   set.style("font-size","50px");
 
   plus = createButton("+");
-  //plus.position(width/2+100,height/2-35);
+  plus.position(width/2-35,height/2+90);
   plus.style("background","lavender");
   plus.style("font-size","50px");
   
   reset = createButton("Reset");
-  //reset.position(width/2-80,height-100);
+  reset.position(width/2-80,height/2);
   reset.style("background","orange");
   reset.style("font-size","50px");
 
   target = createButton("Target");
-  //target.position(width/2-80,height-100);
+  target.position(width/2-85,height-100);
   target.style("background","orange");
   target.style("font-size","50px");
 }
@@ -64,8 +65,9 @@ function draw() {
    }else{
       reset.hide();
     }
-   
 
+   cancel.position(width-200,height-100);
+   
    if(input.value()>0) {
      cancel.show();
      if(count<input.value()) {
@@ -80,11 +82,11 @@ function draw() {
        fill(255,0,0);
      }
     
-     text(count+"/"+input.value(),width/2,height/2+100);
+     text(count+"/"+input.value(),width/2-10,height/2-50);
    }else{
        cancel.hide();
        fill(0);
-       text(count,width/2,height/2+100);
+       text(count,width/2-10,height/2-50);
     }
 
    cancel.mouseReleased(()=>{
@@ -128,6 +130,9 @@ function draw() {
        count = 0;
      }
     });
+
+    cancel.position(width/2-60,height/2+70);
+    set.position(width/2-20,height/2+150);
 
     cancel.mouseReleased(()=>{
      input.value(0);
