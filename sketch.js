@@ -20,7 +20,7 @@ function setup() {
   minus = createButton("-");
   minus.position(width/2-35,height/2+500);
   minus.style("background","lavender");
-  minus.style("width","85px");
+  minus.style("width","75px");
   minus.style("font-size","100px");
 
   set = createButton("set");
