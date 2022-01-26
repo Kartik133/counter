@@ -18,14 +18,15 @@ function setup() {
   cancel.style("font-size","50px");
 
   minus = createButton("-");
-  minus.position(width/2-45,height/2+500);
+  minus.position(width/2-67.5,height/2+500);
   minus.style("background","lavender");
-  minus.style("width","75px");
-  minus.style("border-top-left-radius","25px");  
+  minus.style("width","120px");
+  /*minus.style("border-top-left-radius","25px");  
   minus.style("border-top-right-radius","25px");  
   minus.style("border-bottom-right-radius","25px");  
-  minus.style("border-bottom-left-radius","25px"); 
+  minus.style("border-bottom-left-radius","25px"); */
   minus.style("font-size","100px");
+  minus.style("border-radius","50%");  
 
   set = createButton("set");
   set.position(width/2-500,height/2-35);
@@ -33,9 +34,10 @@ function setup() {
   set.style("font-size","50px");
 
   plus = createButton("+");
-  plus.position(width/2-45,height/2+300);
+  plus.position(width/2-67.5,height/2+300);
   plus.style("background","lavender");
   plus.style("font-size","100px");
+  plus.style("width","120px");
  /* plus.style("border-top-left-radius","25px");  
   plus.style("border-top-right-radius","25px");  
   plus.style("border-bottom-right-radius","25px");  
