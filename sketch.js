@@ -21,6 +21,10 @@ function setup() {
   minus.position(width/2-45,height/2+500);
   minus.style("background","lavender");
   minus.style("width","75px");
+  minus.style("border-top-left-radius","25px");  
+  minus.style("border-top-right-radius","25px");  
+  minus.style("border-bottom-right-radius","25px");  
+  minus.style("border-bottom-left-radius","25px"); 
   minus.style("font-size","100px");
 
   set = createButton("set");
@@ -32,6 +36,11 @@ function setup() {
   plus.position(width/2-45,height/2+300);
   plus.style("background","lavender");
   plus.style("font-size","100px");
+ /* plus.style("border-top-left-radius","25px");  
+  plus.style("border-top-right-radius","25px");  
+  plus.style("border-bottom-right-radius","25px");  
+  plus.style("border-bottom-left-radius","25px"); */
+  plus.style("border-radius","50%");  
   
   reset = createButton("Reset");
   reset.position(width/2-80,height/2+100);
